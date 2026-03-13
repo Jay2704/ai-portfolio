@@ -16,6 +16,13 @@ export default function PremiumHero({ profileImage }) {
   return (
     <section className="relative min-h-[90vh] overflow-hidden border-b border-[var(--color-border)]">
       <AnimatedBackground variant="grid" />
+      <div
+        className="pointer-events-none absolute inset-0 md:right-0 md:left-auto md:w-1/2"
+        style={{
+          background: 'radial-gradient(circle at 70% 40%, rgba(34,211,238,0.15), transparent 50%)',
+        }}
+        aria-hidden
+      />
       <div className="relative mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center gap-12 px-4 py-20 md:flex-row md:items-center md:justify-between md:gap-16 md:px-6 md:py-28">
         <div className="flex flex-1 flex-col text-center md:text-left">
           <motion.p
