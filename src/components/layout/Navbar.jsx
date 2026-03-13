@@ -36,7 +36,7 @@ export default function Navbar() {
                       <span className="text-[var(--color-text)]">{label}</span>
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]"
+                        className="absolute inset-0 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[0_0_30px_rgba(34,211,238,0.10)]"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                         style={{ zIndex: -1 }}
                       />

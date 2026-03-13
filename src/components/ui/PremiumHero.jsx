@@ -23,7 +23,7 @@ export default function PremiumHero({ profileImage }) {
         }}
         aria-hidden
       />
-      <div className="relative mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center gap-12 px-4 py-20 md:flex-row md:items-center md:justify-between md:gap-16 md:px-6 md:py-28">
+      <div className="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col items-center gap-14 px-4 py-20 md:flex-row md:items-center md:justify-between md:gap-24 md:px-6 md:py-28 xl:gap-28">
         <div className="flex flex-1 flex-col text-center md:text-left">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -88,20 +88,29 @@ export default function PremiumHero({ profileImage }) {
                     href={cta.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-medium text-[var(--color-text)] no-underline transition-all hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)]"
+                    className="group inline-flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-medium text-[var(--color-text)] no-underline transition-all hover:border-[var(--color-cyan)]/50 hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-text)] hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]"
                   >
                     <FileDown size={18} aria-hidden /> {cta.label}
                   </a>
                 )
               }
+              const isPrimary = Boolean(cta.primary)
               return (
                 <Link
                   key={cta.label}
                   to={cta.to}
                   className={
-                    cta.primary
-                      ? 'group inline-flex items-center gap-2 rounded-xl border border-[var(--color-accent)] bg-[var(--color-accent)]/15 px-5 py-2.5 text-sm font-medium text-[var(--color-accent)] no-underline transition-all hover:bg-[var(--color-accent)]/25 hover:shadow-[0_0_24px_rgba(91,141,239,0.15)]'
-                      : 'group inline-flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-medium text-[var(--color-text)] no-underline transition-all hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)]'
+                    isPrimary
+                      ? 'group inline-flex items-center gap-2 rounded-xl border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] no-underline transition-all hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]'
+                      : 'group inline-flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-medium text-[var(--color-text)] no-underline transition-all hover:border-[var(--color-cyan)]/40 hover:bg-[var(--color-accent)]/10 hover:shadow-[0_0_26px_rgba(34,211,238,0.14)]'
+                  }
+                  style={
+                    isPrimary
+                      ? {
+                          background: 'linear-gradient(135deg, rgba(59,130,246,0.22), rgba(34,211,238,0.14))',
+                          boxShadow: '0 0 40px rgba(34,211,238,0.16)',
+                        }
+                      : undefined
                   }
                 >
                   {cta.label}
@@ -136,8 +145,17 @@ export default function PremiumHero({ profileImage }) {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.25, duration: 0.5 }}
-          className="flex shrink-0 md:w-[380px] lg:w-[420px]"
+          className="relative flex shrink-0 md:translate-x-12 md:w-[380px] lg:translate-x-16 lg:w-[420px] xl:translate-x-20"
         >
+          {/* additional layered glow behind the card */}
+          <div
+            className="pointer-events-none absolute -inset-10 -z-10 rounded-[32px] opacity-90 blur-3xl"
+            style={{
+              background:
+                'radial-gradient(circle at 60% 40%, rgba(34,211,238,0.18), transparent 55%)',
+            }}
+            aria-hidden
+          />
           <ProfileImageCard src={profileImage} alt={heroData.name} />
         </motion.div>
       </div>
