@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Github, Linkedin, Mail, FileDown } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail, FileDown, Code2 } from 'lucide-react'
 import AnimatedBackground from './AnimatedBackground'
 import ProfileImageCard from './ProfileImageCard'
 import { heroData } from '../../data/hero'
@@ -9,6 +9,7 @@ import { contactInfo } from '../../data/contact'
 const socialLinks = [
   { icon: Github, label: 'GitHub', href: contactInfo.github },
   { icon: Linkedin, label: 'LinkedIn', href: contactInfo.linkedIn },
+  { icon: Code2, label: 'LeetCode', href: contactInfo.leetcode },
   { icon: Mail, label: 'Email', href: `mailto:${contactInfo.email}` },
 ]
 

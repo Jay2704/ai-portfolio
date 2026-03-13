@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Linkedin, Github } from 'lucide-react'
+import { Mail, MapPin, Linkedin, Github, Code2 } from 'lucide-react'
 
-const icons = { Mail, MapPin, Linkedin, Github }
+const icons = { Mail, MapPin, Linkedin, Github, Leetcode: Code2 }
 
 export default function ContactCard({ type, label, value, href }) {
   const Icon = icons[type]

@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail, Code2 } from 'lucide-react'
 import { navLinks } from '../../data/navigation'
 import { contactInfo } from '../../data/contact'
 
 const social = [
   { icon: Github, label: 'GitHub', href: contactInfo.github },
   { icon: Linkedin, label: 'LinkedIn', href: contactInfo.linkedIn },
+  { icon: Code2, label: 'LeetCode', href: contactInfo.leetcode },
   { icon: Mail, label: 'Email', href: `mailto:${contactInfo.email}` },
 ]
 
