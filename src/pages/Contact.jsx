@@ -42,7 +42,6 @@ export default function Contact() {
     setTouched(newTouched)
     setErrors(newErrors)
     if (Object.values(newErrors).every((err) => !err)) {
-      // Would send to backend or mailto
       alert('Form is valid. Hook up your backend or mailto here.')
     }
   }
@@ -54,13 +53,16 @@ export default function Contact() {
         subtitle="Get in touch for collaboration or opportunities."
       />
       <section className="px-4 py-12 md:px-6 md:py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid gap-10 lg:grid-cols-2">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="space-y-4"
+              className="space-y-5"
             >
+              <p className="text-[var(--color-text-muted)]">
+                I'm open to collaboration, full-time roles, and interesting problems. Reach out via email or LinkedIn.
+              </p>
               <ContactCard
                 type="Mail"
                 label="Email"
@@ -87,14 +89,20 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               onSubmit={handleSubmit}
-              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6"
+              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8"
             >
-              <h3 className="text-lg font-medium text-[var(--color-text)]">
+              <h3 className="text-xl font-semibold text-[var(--color-text)]">
                 Send a message
               </h3>
-              <div className="mt-4 space-y-4">
+              <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+                I'll get back to you as soon as I can.
+              </p>
+              <div className="mt-6 space-y-5">
                 <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium text-[var(--color-text-muted)]">
+                  <label
+                    htmlFor="contact-name"
+                    className="block text-sm font-medium text-[var(--color-text-muted)]"
+                  >
                     Name
                   </label>
                   <input
@@ -104,19 +112,22 @@ export default function Contact() {
                     value={formState.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className="mt-1 w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2.5 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none"
+                    className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
                     placeholder="Your name"
                     aria-invalid={errors.name ? 'true' : 'false'}
                     aria-describedby={errors.name ? 'name-error' : undefined}
                   />
                   {errors.name && (
-                    <p id="name-error" className="mt-1 text-xs text-red-400" role="alert">
+                    <p id="name-error" className="mt-1.5 text-xs text-red-400" role="alert">
                       {errors.name}
                     </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium text-[var(--color-text-muted)]">
+                  <label
+                    htmlFor="contact-email"
+                    className="block text-sm font-medium text-[var(--color-text-muted)]"
+                  >
                     Email
                   </label>
                   <input
@@ -126,18 +137,21 @@ export default function Contact() {
                     value={formState.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className="mt-1 w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2.5 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none"
+                    className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
                     placeholder="you@example.com"
                     aria-invalid={errors.email ? 'true' : 'false'}
                   />
                   {errors.email && (
-                    <p className="mt-1 text-xs text-red-400" role="alert">
+                    <p className="mt-1.5 text-xs text-red-400" role="alert">
                       {errors.email}
                     </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-[var(--color-text-muted)]">
+                  <label
+                    htmlFor="contact-message"
+                    className="block text-sm font-medium text-[var(--color-text-muted)]"
+                  >
                     Message
                   </label>
                   <textarea
@@ -146,13 +160,13 @@ export default function Contact() {
                     value={formState.message}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    rows={4}
-                    className="mt-1 w-full resize-y rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2.5 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none"
+                    rows={5}
+                    className="mt-2 w-full resize-y rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
                     placeholder="Your message..."
                     aria-invalid={errors.message ? 'true' : 'false'}
                   />
                   {errors.message && (
-                    <p className="mt-1 text-xs text-red-400" role="alert">
+                    <p className="mt-1.5 text-xs text-red-400" role="alert">
                       {errors.message}
                     </p>
                   )}
@@ -160,7 +174,7 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="mt-6 w-full rounded-lg border border-[var(--color-accent)] bg-[var(--color-accent)]/10 py-2.5 text-sm font-medium text-[var(--color-accent)] transition-colors hover:bg-[var(--color-accent)]/20"
+                className="mt-8 w-full rounded-xl border border-[var(--color-accent)] bg-[var(--color-accent)]/15 py-3.5 text-sm font-medium text-[var(--color-accent)] transition-colors hover:bg-[var(--color-accent)]/25"
               >
                 Send message
               </button>

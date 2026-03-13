@@ -67,6 +67,8 @@ git push -u origin main
 
 ## Customization
 
+- **Profile photo:** Replace `src/assets/profile.jpg` with your own image (same path). The hero uses it in the premium profile card.
+- **Hero & about:** Edit `src/data/hero.js` (name, tagline, summary, badges, CTAs, stats, strengths, about story).
 - **Content:** Edit `src/data/` (projects, skills, experience, contact, navigation).
-- **Theme:** Colors are in `src/index.css` under `@theme` (Tailwind v4).
-- **Resume:** Add `public/resume.pdf` and ensure `resumeUrl` in `src/data/navigation.js` points to it.
+- **Theme:** Colors are in `src/index.css` under `@theme` (Tailwind v4). Use `--color-accent-glow` for soft glows.
+- **Resume:** Add `public/resume.pdf` and ensure `resumeUrl` in `src/data/navigation.js` (and hero CTAs) points to it.

@@ -9,27 +9,27 @@ export default function MobileMenu({ onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-[var(--color-bg)]/98 md:hidden"
+      className="fixed inset-0 z-50 bg-[var(--color-bg)]/98 backdrop-blur-md md:hidden"
       aria-modal="true"
       role="dialog"
       aria-label="Mobile menu"
     >
-      <div className="flex h-full flex-col p-6 pt-16">
+      <div className="flex h-full flex-col p-6 pt-20">
         <button
           type="button"
-          className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-md border border-[var(--color-border)] text-[var(--color-text)]"
+          className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-border)] text-[var(--color-text)]"
           onClick={onClose}
           aria-label="Close menu"
         >
           <X size={20} />
         </button>
-        <nav className="flex flex-1 flex-col gap-2" aria-label="Mobile navigation">
+        <nav className="flex flex-1 flex-col gap-1" aria-label="Mobile navigation">
           {navLinks.map(({ path, label }) => (
             <Link
               key={path}
               to={path}
               onClick={onClose}
-              className="rounded-md px-4 py-3 text-lg text-[var(--color-text)] no-underline hover:bg-[var(--color-surface)]"
+              className="rounded-xl px-4 py-3.5 text-lg font-medium text-[var(--color-text)] no-underline transition-colors hover:bg-[var(--color-surface)]"
             >
               {label}
             </Link>
@@ -39,7 +39,7 @@ export default function MobileMenu({ onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="flex items-center gap-2 rounded-md px-4 py-3 text-lg text-[var(--color-text-muted)] no-underline hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]"
+            className="flex items-center gap-2 rounded-xl px-4 py-3.5 text-lg font-medium text-[var(--color-accent)] no-underline hover:bg-[var(--color-surface)]"
           >
             <FileText size={20} /> Resume
           </a>
