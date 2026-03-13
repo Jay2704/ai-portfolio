@@ -1,4 +1,3 @@
-import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import SkillCategoryCard from '../components/ui/SkillCategoryCard'
 import { skillCategories } from '../data/skills'
@@ -6,8 +5,9 @@ import { skillCategories } from '../data/skills'
 export default function Skills() {
   return (
     <>
-      <PageHero
-        title="Skills & expertise"
+      <SectionHeader
+        variant="compact"
+        title="Skills"
         subtitle="Technologies and tools I work with."
       />
       <section className="px-4 py-12 md:px-6 md:py-16">

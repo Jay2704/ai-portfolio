@@ -53,7 +53,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-10 border-t border-[var(--color-border)] pt-8 text-center text-xs text-[var(--color-text-muted)]/70">
-          © {new Date().getFullYear()} — Built with React, Vite & Tailwind
+          © {new Date().getFullYear()} Jay Paun — Built with React, Vite & Tailwind
         </div>
       </div>
     </footer>

@@ -1,30 +1,30 @@
 export const skillCategories = [
   {
     name: 'Languages',
-    items: ['JavaScript', 'TypeScript', 'Python', 'Go', 'Java', 'SQL'],
+    items: ['Python', 'JavaScript', 'Java', 'HTML', 'CSS', 'Shell Scripting'],
   },
   {
     name: 'Frontend',
-    items: ['React', 'Next.js', 'Vue', 'Tailwind CSS', 'Framer Motion'],
+    items: ['React.js', 'React Native', 'HTML/CSS', 'Tailwind CSS'],
   },
   {
     name: 'Backend',
-    items: ['Node.js', 'Express', 'FastAPI', 'Django', 'GraphQL', 'REST'],
+    items: ['Node.js', 'Flask', 'REST APIs', 'Express'],
   },
   {
     name: 'AI / ML',
-    items: ['PyTorch', 'TensorFlow', 'Hugging Face', 'LangChain', 'OpenAI API', 'MLflow'],
+    items: ['PyTorch', 'TensorFlow', 'LangChain', 'LLaMA', 'Hugging Face', 'QLoRA/LoRA', 'OpenCV', 'NLP', 'Embeddings', 'Prompt Engineering', 'Agentic AI'],
   },
   {
     name: 'Cloud / DevOps',
-    items: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'GitHub Actions'],
+    items: ['AWS (EC2, S3, Lambda, SageMaker)', 'Docker', 'Jenkins', 'Ansible', 'Prometheus', 'Grafana', 'CI/CD'],
   },
   {
     name: 'Databases',
-    items: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch'],
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Vector DB'],
   },
   {
     name: 'Tools',
-    items: ['Git', 'Linux', 'VS Code', 'Figma', 'Jira'],
+    items: ['Git', 'GitHub', 'n8n', 'JIRA', 'Tableau', 'Agile/Scrum', 'System Design'],
   },
 ]

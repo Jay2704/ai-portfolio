@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
-import PageHero from '../components/ui/PageHero'
+import { GraduationCap } from 'lucide-react'
 import SectionHeader from '../components/ui/SectionHeader'
-import { aboutStory } from '../data/hero'
+import { aboutStory, education } from '../data/hero'
 
 export default function About() {
   return (
     <>
-      <PageHero
+      <SectionHeader
+        variant="compact"
         title="About"
         subtitle="Background, values, and how I approach engineering and AI systems."
       />
@@ -38,6 +39,29 @@ export default function About() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                <GraduationCap size={18} className="text-[var(--color-cyan)]" />
+                Education
+              </h3>
+              <div className="space-y-4">
+                {education.map((edu, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-4"
+                  >
+                    <p className="font-medium text-[var(--color-text)]">{edu.degree}</p>
+                    <p className="mt-1 text-sm text-[var(--color-accent)]">{edu.school}</p>
+                    <div className="mt-2 flex flex-wrap gap-3 text-xs text-[var(--color-text-muted)]">
+                      <span>{edu.location}</span>
+                      <span>•</span>
+                      <span>{edu.duration}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="rounded-2xl border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/5 p-6">

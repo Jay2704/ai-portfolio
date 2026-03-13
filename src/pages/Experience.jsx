@@ -1,4 +1,3 @@
-import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import ExperienceTimeline from '../components/ui/ExperienceTimeline'
 import { experiences } from '../data/experience'
@@ -6,8 +5,9 @@ import { experiences } from '../data/experience'
 export default function Experience() {
   return (
     <>
-      <PageHero
-        title="Work experience"
+      <SectionHeader
+        variant="compact"
+        title="Experience"
         subtitle="Roles, companies, and key achievements."
       />
       <section className="px-4 py-12 md:px-6 md:py-16">

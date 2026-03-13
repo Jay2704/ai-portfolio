@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import PageHero from '../components/ui/PageHero'
+import SectionHeader from '../components/ui/SectionHeader'
 import ContactCard from '../components/ui/ContactCard'
 import { contactInfo } from '../data/contact'
 
@@ -48,7 +48,8 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero
+      <SectionHeader
+        variant="compact"
         title="Contact"
         subtitle="Get in touch for collaboration or opportunities."
       />

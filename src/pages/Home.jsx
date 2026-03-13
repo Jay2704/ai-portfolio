@@ -8,7 +8,7 @@ import CTASection from '../components/ui/CTASection'
 import { projects } from '../data/projects'
 import { heroData, stats, strengths } from '../data/hero'
 import { experiences } from '../data/experience'
-import profileImg from '../assets/profile.jpg'
+import profileImg from '../assets/jay.jpg'
 
 export default function Home() {
   const featured = projects.slice(0, 3)

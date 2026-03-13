@@ -29,23 +29,26 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent)]"
+            className="text-xs font-medium uppercase tracking-widest text-[var(--color-accent)]"
           >
             {heroData.title}
           </motion.p>
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.4 }}
-            className="mt-2 text-[var(--color-text-muted)]"
+            className="mt-4 text-xl text-[var(--color-text-muted)] md:text-2xl"
           >
-            {heroData.intro} <span className="text-[var(--color-text)] font-medium">{heroData.name}</span>
-          </motion.p>
+            {heroData.intro}{' '}
+            <span className="font-heading text-2xl font-bold tracking-tight text-[var(--color-cyan)] md:text-3xl">
+              {heroData.name}
+            </span>
+          </motion.h2>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.5 }}
-            className="mt-3 text-4xl font-semibold tracking-tight text-[var(--color-text)] md:text-5xl lg:text-6xl"
+            className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)] md:text-3xl lg:text-4xl"
           >
             {heroData.tagline}
           </motion.h1>
@@ -145,18 +148,20 @@ export default function PremiumHero({ profileImage }) {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.25, duration: 0.5 }}
-          className="relative flex shrink-0 md:translate-x-12 md:w-[380px] lg:translate-x-16 lg:w-[420px] xl:translate-x-20"
+          className="relative flex shrink-0 justify-center lg:justify-end"
         >
           {/* additional layered glow behind the card */}
           <div
-            className="pointer-events-none absolute -inset-10 -z-10 rounded-[32px] opacity-90 blur-3xl"
+            className="pointer-events-none absolute -inset-8 -z-10 rounded-[32px] opacity-90 blur-3xl"
             style={{
               background:
                 'radial-gradient(circle at 60% 40%, rgba(34,211,238,0.18), transparent 55%)',
             }}
             aria-hidden
           />
-          <ProfileImageCard src={profileImage} alt={heroData.name} />
+          <div className="w-64 md:w-72 lg:w-80">
+            <ProfileImageCard src={profileImage} alt={heroData.name} />
+          </div>
         </motion.div>
       </div>
     </section>

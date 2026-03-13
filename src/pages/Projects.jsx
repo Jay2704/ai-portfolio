@@ -1,9 +1,8 @@
 import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Search } from 'lucide-react'
-import PageHero from '../components/ui/PageHero'
-import SectionHeader from '../components/ui/SectionHeader'
 import ProjectCard from '../components/ui/ProjectCard'
+import SectionHeader from '../components/ui/SectionHeader'
 import { projects, projectCategories } from '../data/projects'
 
 export default function Projects() {
@@ -27,17 +26,18 @@ export default function Projects() {
 
   return (
     <>
-      <PageHero
+      <SectionHeader
+        variant="compact"
         title="Projects"
         subtitle="Selected work across AI/ML, full-stack, cloud, and developer tools."
       />
-      <section className="px-4 py-12 md:px-6 md:py-16">
+
+      <section className="px-4 pb-12 pt-8 md:px-6 md:pb-16 md:pt-10">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader title="All projects" subtitle="Case studies and key deliverables." />
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+            className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-8"
           >
             <div className="relative flex-1 sm:max-w-xs">
               <Search
