@@ -8,6 +8,7 @@ const Experience = lazy(() => import('../pages/Experience'))
 const Projects = lazy(() => import('../pages/Projects'))
 const ProjectDetail = lazy(() => import('../pages/ProjectDetail'))
 const Skills = lazy(() => import('../pages/Skills'))
+const Education = lazy(() => import('../pages/Education'))
 const Contact = lazy(() => import('../pages/Contact'))
 
 function PageLoader() {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: 'projects', element: <Projects /> },
       { path: 'projects/:slug', element: <ProjectDetail /> },
       { path: 'skills', element: <Skills /> },
+      { path: 'education', element: <Education /> },
       { path: 'contact', element: <Contact /> },
     ],
   },
