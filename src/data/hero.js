@@ -9,7 +9,7 @@ export const heroData = {
   ctas: [
     { label: 'View Projects', to: '/projects', primary: true },
     { label: 'Contact Me', to: '/contact', primary: false },
-    { label: 'Download Resume', href: '/resume.pdf', external: true },
+    { label: 'Download Resume', href: 'https://drive.google.com/file/d/1dftyVaoEpFzKfqZNeuSJJT4vIvIaGABE/view?usp=drive_link', external: true },
   ],
 }
 

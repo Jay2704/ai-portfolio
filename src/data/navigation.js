@@ -7,4 +7,4 @@ export const navLinks = [
   { path: '/contact', label: 'Contact' },
 ]
 
-export const resumeUrl = '/resume.pdf'
+export const resumeUrl = 'https://drive.google.com/file/d/1dftyVaoEpFzKfqZNeuSJJT4vIvIaGABE/view?usp=drive_link'
