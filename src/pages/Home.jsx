@@ -7,7 +7,7 @@ import ProjectCard from '../components/ui/ProjectCard'
 import StatCard from '../components/ui/StatCard'
 import CTASection from '../components/ui/CTASection'
 import { projects } from '../data/projects'
-import { heroData, stats, strengths } from '../data/hero'
+import { stats, strengths } from '../data/hero'
 import { experiences } from '../data/experience'
 import { codingProfiles } from '../data/contact'
 import profileImg from '../assets/jay.jpg'
@@ -20,14 +20,14 @@ export default function Home() {
     <>
       <PremiumHero profileImage={profileImg} />
 
-      <section className="border-b border-[var(--color-border)] bg-[var(--color-bg-elevated)]/30 px-4 py-16 md:px-6 md:py-20">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding border-b border-[var(--color-border)] bg-[var(--color-bg-elevated)]/50">
+        <div className="site-container">
           <SectionHeader
             title="Coding Profiles"
             subtitle="Practice and problem-solving across competitive programming platforms."
             align="center"
           />
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3">
             {codingProfiles.map(({ label, href, logo, username }, i) => (
               <motion.a
                 key={label}
@@ -38,19 +38,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-center transition-all hover:border-[var(--color-cyan)]/50 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]"
+                className="surface-card surface-card-hover p-6 text-center no-underline"
               >
-                <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-3xl transition-opacity group-hover:opacity-100"
-                  style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.2), transparent)' }}
-                  aria-hidden
-                />
-                <div className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-3 transition-transform group-hover:scale-105 md:h-24 md:w-24">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-3">
                   <img src={logo} alt={label} className="h-full w-full object-contain" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-[var(--color-text)]">{label}</h3>
                 <p className="mt-1 text-sm text-[var(--color-text-muted)]">@{username}</p>
-                <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-cyan)] transition-colors group-hover:text-[var(--color-accent)]">
+                <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)]">
                   View Profile <ExternalLink size={14} />
                 </div>
               </motion.a>
@@ -59,13 +54,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-16 md:px-6 md:py-20" id="featured">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding" id="featured">
+        <div className="site-container">
           <SectionHeader
             title="Featured projects"
             subtitle="A selection of recent work across ML, full-stack, and infrastructure."
           />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((project, i) => (
               <ProjectCard key={project.slug} project={project} index={i} />
             ))}
@@ -78,7 +73,7 @@ export default function Home() {
           >
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 rounded-xl border border-[var(--color-accent)]/50 bg-[var(--color-accent)]/10 px-5 py-2.5 text-sm font-medium text-[var(--color-accent)] no-underline transition-colors hover:bg-[var(--color-accent)]/20"
+              className="btn-secondary"
             >
               View all projects →
             </Link>
@@ -86,14 +81,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg-elevated)]/50 px-4 py-16 md:px-6 md:py-20">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding border-y border-[var(--color-border)] bg-[var(--color-bg-elevated)]/40">
+        <div className="site-container">
           <SectionHeader
             title="At a glance"
             subtitle="What I focus on and deliver."
             align="center"
           />
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3">
             {stats.map((stat, i) => (
               <StatCard key={stat.label} value={stat.value} label={stat.label} index={i} />
             ))}
@@ -101,13 +96,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-16 md:px-6 md:py-20">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding">
+        <div className="site-container">
           <SectionHeader
             title="Strengths"
             subtitle="How I approach engineering and delivery."
           />
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3">
             {strengths.map((s, i) => (
               <motion.div
                 key={s.title}
@@ -115,7 +110,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ delay: i * 0.08 }}
-                className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-colors hover:border-[var(--color-accent)]/30"
+                className="surface-card surface-card-hover p-6"
               >
                 <h3 className="text-lg font-semibold text-[var(--color-text)]">{s.title}</h3>
                 <p className="mt-2 text-sm text-[var(--color-text-muted)]">{s.description}</p>
@@ -125,8 +120,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/30 px-4 py-16 md:px-6 md:py-20">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/35">
+        <div className="site-container">
           <SectionHeader
             title="Recent experience"
             subtitle="Roles and impact highlights."
@@ -142,7 +137,7 @@ export default function Home() {
               >
                 <Link
                   to="/experience"
-                  className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 no-underline transition-colors hover:border-[var(--color-accent)]/30"
+                  className="surface-card surface-card-hover flex flex-wrap items-center justify-between gap-4 p-5 no-underline"
                 >
                   <div>
                     <p className="font-medium text-[var(--color-text)]">{exp.role}</p>
@@ -156,7 +151,7 @@ export default function Home() {
           <div className="mt-6 text-center">
             <Link
               to="/experience"
-              className="text-sm font-medium text-[var(--color-accent)] no-underline hover:underline"
+              className="btn-secondary"
             >
               Full experience →
             </Link>
@@ -164,8 +159,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-16 md:px-6 md:py-20">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding">
+        <div className="site-container">
           <CTASection
             title="Let's build something together"
             subtitle="Open to collaboration, full-time roles, and interesting problems."

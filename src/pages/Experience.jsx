@@ -10,9 +10,8 @@ export default function Experience() {
         title="Experience"
         subtitle="Roles, companies, and key achievements."
       />
-      <section className="px-4 py-12 md:px-6 md:py-16">
-        <div className="mx-auto max-w-3xl">
-          <SectionHeader title="Timeline" subtitle="Career progression and impact." />
+      <section className="section-padding-sm">
+        <div className="site-container max-w-4xl">
           <ExperienceTimeline experiences={experiences} />
         </div>
       </section>

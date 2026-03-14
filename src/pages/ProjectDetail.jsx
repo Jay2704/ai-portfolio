@@ -45,10 +45,9 @@ export default function ProjectDetail() {
       <motion.header
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-bg-elevated)]"
+        className="border-b border-[var(--color-border)] bg-[var(--color-bg-elevated)]"
       >
-        <div className="absolute -right-32 top-0 h-80 w-80 rounded-full bg-[var(--color-accent)]/10 blur-3xl" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-20">
+        <div className="site-container max-w-4xl section-padding-sm">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] no-underline transition-colors hover:text-[var(--color-accent)]"
@@ -61,7 +60,7 @@ export default function ProjectDetail() {
           <h1 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--color-text)] md:text-4xl">
             {title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--color-text-muted)]">{overview}</p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">{overview}</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {techStack.map((tech) => (
               <SkillBadge key={tech} label={tech} />
@@ -73,7 +72,7 @@ export default function ProjectDetail() {
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[var(--color-accent)]/50 bg-[var(--color-accent)]/10 px-4 py-2.5 text-sm font-medium text-[var(--color-accent)] no-underline transition-colors hover:bg-[var(--color-accent)]/20"
+                className="btn-primary"
               >
                 <Github size={18} /> GitHub
               </a>
@@ -83,7 +82,7 @@ export default function ProjectDetail() {
                 href={demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium text-[var(--color-text)] no-underline transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+                className="btn-secondary"
               >
                 <ExternalLink size={18} /> Demo
               </a>
@@ -92,8 +91,8 @@ export default function ProjectDetail() {
         </div>
       </motion.header>
 
-      <section className="px-4 py-12 md:px-6 md:py-16">
-        <div className="mx-auto max-w-4xl space-y-16">
+      <section className="section-padding-sm">
+        <div className="site-container max-w-4xl space-y-12">
           {problem && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -103,7 +102,7 @@ export default function ProjectDetail() {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Problem
               </h3>
-              <p className="mt-3 text-[var(--color-text-muted)]">{problem}</p>
+              <p className="mt-3 leading-relaxed text-[var(--color-text-muted)]">{problem}</p>
             </motion.div>
           )}
           {solution && (
@@ -115,7 +114,7 @@ export default function ProjectDetail() {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Solution
               </h3>
-              <p className="mt-3 text-[var(--color-text-muted)]">{solution}</p>
+              <p className="mt-3 leading-relaxed text-[var(--color-text-muted)]">{solution}</p>
             </motion.div>
           )}
           {architecture && (
@@ -127,7 +126,7 @@ export default function ProjectDetail() {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Architecture
               </h3>
-              <p className="mt-3 text-[var(--color-text-muted)]">{architecture}</p>
+              <p className="mt-3 leading-relaxed text-[var(--color-text-muted)]">{architecture}</p>
             </motion.div>
           )}
           {features && features.length > 0 && (
@@ -143,7 +142,7 @@ export default function ProjectDetail() {
                 {features.map((f, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-muted)]"
+                    className="surface-card rounded-xl px-4 py-3 text-sm text-[var(--color-text-muted)]"
                   >
                     {f}
                   </div>
@@ -160,19 +159,19 @@ export default function ProjectDetail() {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Challenges
               </h3>
-              <p className="mt-3 text-[var(--color-text-muted)]">{challenges}</p>
+              <p className="mt-3 leading-relaxed text-[var(--color-text-muted)]">{challenges}</p>
             </motion.div>
           )}
         </div>
       </section>
 
       {related.length > 0 && (
-        <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/30 px-4 py-16 md:px-6">
-          <div className="mx-auto max-w-6xl">
+        <section className="section-padding border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/35">
+          <div className="site-container">
             <h2 className="mb-8 text-xl font-semibold text-[var(--color-text)]">
               Related projects
             </h2>
-            <div className="grid gap-8 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2">
               {related.map((p, i) => (
                 <ProjectCard key={p.slug} project={p} index={i} />
               ))}

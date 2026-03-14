@@ -5,7 +5,7 @@ import { contactInfo, socialLinks } from '../../data/contact'
 export default function Footer() {
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]">
-      <div className="mx-auto max-w-6xl px-4 py-14 md:px-6">
+      <div className="site-container py-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm font-medium text-[var(--color-text)]">
@@ -22,7 +22,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-1.5 transition-all hover:border-[var(--color-accent)] hover:scale-110"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-1.5 transition-colors hover:border-[var(--color-border-focus)]"
                   aria-label={label}
                 >
                   <img src={logo} alt={label} className="h-full w-full object-contain" />

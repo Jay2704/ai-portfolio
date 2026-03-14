@@ -32,14 +32,14 @@ export default function Projects() {
         subtitle="Selected work across AI/ML, full-stack, cloud, and developer tools."
       />
 
-      <section className="px-4 pb-12 pt-8 md:px-6 md:pb-16 md:pt-10">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding-sm">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-8"
           >
-            <div className="relative flex-1 sm:max-w-xs">
+            <div className="relative flex-1 sm:max-w-sm">
               <Search
                 className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-muted)]"
                 aria-hidden
@@ -49,7 +49,7 @@ export default function Projects() {
                 placeholder="Search projects..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-2.5 pl-11 pr-4 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none"
+                className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-3 pl-11 pr-4 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-accent)] focus:outline-none"
                 aria-label="Search projects"
               />
             </div>
@@ -59,10 +59,10 @@ export default function Projects() {
                   key={cat}
                   type="button"
                   onClick={() => setFilter(cat)}
-                  className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition-all ${
+                  className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors ${
                     filter === cat
-                      ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-accent)]'
-                      : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-text-muted)] hover:text-[var(--color-text)]'
+                      ? 'border-[var(--color-border-focus)] bg-[var(--color-surface)] text-[var(--color-text)]'
+                      : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-border-focus)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]'
                   }`}
                 >
                   {cat}
@@ -70,7 +70,7 @@ export default function Projects() {
               ))}
             </div>
           </motion.div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((project, i) => (
               <ProjectCard key={project.slug} project={project} index={i} />
             ))}

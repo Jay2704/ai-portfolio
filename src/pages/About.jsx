@@ -32,64 +32,67 @@ export default function About() {
         title="About"
         subtitle="Professional background and coding profiles."
       />
-      <section className="px-4 py-12 md:px-6 md:py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12"
+            className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10"
           >
             <div className="max-w-2xl lg:pr-4">
-              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] md:text-3xl">
+              <h2 className="font-heading text-2xl font-semibold tracking-tight text-[var(--color-text)] md:text-3xl">
                 About Me
               </h2>
-              <div className="mt-6 space-y-5 text-slate-300">
+              <div className="mt-6 space-y-5 text-[var(--color-text-muted)]">
                 {summaryParagraphs.map((p, i) => (
-                  <p key={i} className="max-w-prose leading-relaxed">
+                  <p key={i} className="max-w-prose leading-7">
                     {p}
                   </p>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 shadow-[0_0_40px_rgba(34,211,238,0.06)] md:p-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+            <div className="surface-card p-5 md:p-6">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                 Coding Profiles
               </h3>
-              <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {codingProfiles.map((profile) => (
                   <a
                     key={profile.label}
                     href={profile.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group h-36 rounded-2xl border border-slate-700 bg-slate-950/40 p-4 text-center no-underline transition-all duration-300 hover:translate-y-[-3px] hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] flex flex-col items-center justify-center gap-2"
+                    className="surface-card surface-card-hover flex h-32 flex-col items-center justify-center gap-3 p-4 text-center no-underline"
                   >
                     <img
                       src={profile.icon}
                       alt={`${profile.label} icon`}
-                      className="h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-110"
+                      className="h-10 w-10 object-contain"
+                      loading="lazy"
                     />
-                    <span className="text-sm text-slate-300 transition-colors duration-300 group-hover:text-[var(--color-text)]">
+                    <span className="text-sm text-[var(--color-text-muted)] transition-colors group-hover:text-[var(--color-text)]">
                       {profile.label}
                     </span>
                   </a>
                 ))}
               </div>
 
-              <h3 className="mt-10 text-sm uppercase tracking-wider text-slate-400">
+              <h3 className="mt-8 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                 Worked With
               </h3>
-              <div className="mt-6 flex flex-wrap items-center gap-10">
+              <div className="mt-5 grid grid-cols-2 gap-3">
                 <img
                   src={hpeLogo}
                   alt="Hewlett Packard Enterprise"
-                  className="h-10 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:scale-105 hover:grayscale-0 hover:opacity-100 hover:drop-shadow-[0_0_14px_rgba(34,211,238,0.35)]"
+                  className="h-14 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-3 object-contain"
+                  loading="lazy"
                 />
                 <img
                   src={ibmLogo}
                   alt="IBM"
-                  className="h-10 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:scale-105 hover:grayscale-0 hover:opacity-100 hover:drop-shadow-[0_0_14px_rgba(34,211,238,0.35)]"
+                  className="h-14 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-3 object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>

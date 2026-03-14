@@ -9,22 +9,30 @@ export default function MobileMenu({ onClose }) {
   const location = useLocation()
   const visibleNavLinks = navLinks.filter(({ path, label }) => path !== '/' && label !== 'Home')
   const isBrowser = typeof document !== 'undefined'
+
   const overlay = (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[9999] bg-slate-950 md:hidden"
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[9999] bg-[var(--color-bg)] md:hidden"
       aria-modal="true"
       role="dialog"
       aria-label="Mobile menu"
     >
-      <div className="flex h-full flex-col overflow-y-auto px-5 pb-8 pt-6">
+      <motion.div
+        initial={{ y: '100%' }}
+        animate={{ y: 0 }}
+        exit={{ y: '100%' }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        className="flex h-full flex-col overflow-y-auto px-6 pb-8 pt-6"
+      >
         <div className="flex items-center justify-between">
-          <span className="font-heading text-xl font-semibold text-white">Jay</span>
+          <span className="font-heading text-xl font-semibold text-[var(--color-text)]">Jay</span>
           <button
             type="button"
-            className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-200 transition hover:bg-slate-800"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] transition-colors hover:border-[var(--color-border-focus)]"
             onClick={onClose}
             aria-label="Close menu"
           >
@@ -33,25 +41,25 @@ export default function MobileMenu({ onClose }) {
         </div>
 
         <div className="flex min-h-[calc(100vh-80px)] flex-1 flex-col pb-2 pt-8">
-          <nav className="flex flex-col gap-3" aria-label="Mobile navigation">
-          {visibleNavLinks.map(({ path, label }) => {
-            const isActive =
-              location.pathname === path || (path !== '/' && location.pathname.startsWith(path))
-            return (
-              <Link
-                key={path}
-                to={path}
-                onClick={onClose}
-                className={`w-full rounded-2xl border px-5 py-4 text-left text-lg font-medium no-underline transition ${
-                  isActive
-                    ? 'border-cyan-400/40 bg-slate-800 text-white'
-                    : 'border-slate-800 bg-slate-900 text-slate-200 hover:bg-slate-800'
-                }`}
-              >
-                {label}
-              </Link>
-            )
-          })}
+          <nav className="flex flex-1 flex-col justify-center gap-2" aria-label="Mobile navigation">
+            {visibleNavLinks.map(({ path, label }) => {
+              const isActive =
+                location.pathname === path || (path !== '/' && location.pathname.startsWith(path))
+              return (
+                <Link
+                  key={path}
+                  to={path}
+                  onClick={onClose}
+                  className={`w-full rounded-xl border px-5 py-4 text-left text-lg font-medium no-underline transition-colors ${
+                    isActive
+                      ? 'border-[var(--color-border-focus)] bg-[var(--color-surface)] text-[var(--color-text)]'
+                      : 'border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]'
+                  }`}
+                >
+                  {label}
+                </Link>
+              )
+            })}
           </nav>
 
           <a
@@ -59,14 +67,14 @@ export default function MobileMenu({ onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-cyan-400/40 bg-slate-900 px-5 py-4 text-lg font-medium text-cyan-300 no-underline transition hover:border-cyan-300 hover:bg-slate-800 hover:text-cyan-200"
+            className="btn-primary mt-6 w-full"
           >
             <FileText size={20} /> Resume
           </a>
 
           {socialLinks.length > 0 && (
-            <div className="mt-auto pt-8">
-              <div className="flex items-center gap-3">
+            <div className="mt-8 border-t border-[var(--color-border)] pt-6">
+              <div className="flex items-center justify-center gap-3">
                 {socialLinks.map(({ label, href, logo }) => (
                   <a
                     key={label}
@@ -74,7 +82,7 @@ export default function MobileMenu({ onClose }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 p-2 transition hover:bg-slate-800"
+                    className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-2 transition-colors hover:border-[var(--color-border-focus)]"
                     aria-label={label}
                   >
                     <img src={logo} alt={label} className="h-full w-full object-contain" />
@@ -84,7 +92,7 @@ export default function MobileMenu({ onClose }) {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 

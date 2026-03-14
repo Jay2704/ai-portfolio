@@ -11,44 +11,26 @@ export default function Navbar() {
   const visibleNavLinks = navLinks.filter(({ path, label }) => path !== '/' && label !== 'Home')
 
   useEffect(() => {
-    if (!mobileOpen) return undefined
-
-    const scrollY = window.scrollY
-    const previousBodyOverflow = document.body.style.overflow
-    const previousHtmlOverflow = document.documentElement.style.overflow
-    const previousBodyPosition = document.body.style.position
-    const previousBodyTop = document.body.style.top
-    const previousBodyWidth = document.body.style.width
-
-    document.body.style.overflow = 'hidden'
-    document.documentElement.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
-    document.body.style.top = `-${scrollY}px`
-    document.body.style.width = '100%'
+    if (mobileOpen) {
+      document.body.classList.add('nav-locked')
+    } else {
+      document.body.classList.remove('nav-locked')
+    }
 
     return () => {
-      document.body.style.overflow = previousBodyOverflow
-      document.documentElement.style.overflow = previousHtmlOverflow
-      document.body.style.position = previousBodyPosition
-      document.body.style.top = previousBodyTop
-      document.body.style.width = previousBodyWidth
-      window.scrollTo(0, scrollY)
+      document.body.classList.remove('nav-locked')
     }
   }, [mobileOpen])
 
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [location.pathname])
-
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-900/70 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/98">
       <nav
-        className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 md:px-6"
+        className="site-container flex items-center justify-between gap-4 py-4"
         aria-label="Main navigation"
       >
         <Link
           to="/"
-          className="font-heading text-lg font-semibold text-[var(--color-text)] no-underline transition-colors hover:text-[var(--color-accent)]"
+          className="font-heading text-lg font-semibold tracking-tight text-[var(--color-text)] no-underline transition-colors hover:text-[var(--color-accent)]"
         >
           Jay
         </Link>
@@ -60,10 +42,10 @@ export default function Navbar() {
               <li key={path}>
                 <Link
                   to={path}
-                  className={`rounded-lg border px-4 py-2 text-sm font-medium no-underline transition-all duration-200 ${
+                  className={`rounded-lg px-4 py-2.5 text-sm font-medium no-underline transition-colors duration-200 ${
                     isActive
-                      ? 'border-[var(--color-border-focus)] bg-[var(--color-surface)] text-[var(--color-text)] shadow-[0_0_20px_rgba(34,211,238,0.08)]'
-                      : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-border-focus)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]'
+                      ? 'bg-[var(--color-surface)] text-[var(--color-text)]'
+                      : 'text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]'
                   }`}
                 >
                   {label}
@@ -76,7 +58,7 @@ export default function Navbar() {
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-accent)]/60 px-4 py-2 text-sm font-medium text-[var(--color-accent)] no-underline transition-all duration-200 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white"
+              className="btn-secondary border-[var(--color-border-focus)] text-[var(--color-text)]"
             >
               <FileText size={16} aria-hidden /> Resume
             </a>
@@ -84,7 +66,7 @@ export default function Navbar() {
         </ul>
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:border-[var(--color-text-muted)] md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] transition-colors hover:border-[var(--color-border-focus)] md:hidden"
           onClick={() => setMobileOpen(true)}
           aria-label="Open menu"
         >
