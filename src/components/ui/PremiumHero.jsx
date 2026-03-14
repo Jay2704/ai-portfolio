@@ -10,13 +10,17 @@ export default function PremiumHero({ profileImage }) {
   return (
     <section className="relative overflow-hidden border-b border-[var(--color-border)] pt-4 md:pt-6">
       <AnimatedBackground variant="grid" />
-      <div className="site-container relative section-padding grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
-        <div className="order-2 flex flex-col text-center md:text-left lg:order-1">
+      <div className="site-container relative section-padding grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="order-2 flex flex-col text-center md:text-left lg:order-1 lg:pl-8 xl:pl-12">
+          <div
+            className="pointer-events-none absolute left-[-40px] top-12 hidden h-44 w-44 rounded-full bg-teal-100/70 lg:block"
+            aria-hidden
+          />
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]"
+            className="relative z-10 text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]"
           >
             {heroData.title}
           </motion.p>
@@ -24,7 +28,7 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.4 }}
-            className="font-heading mt-3 text-4xl font-bold tracking-tight text-[var(--color-text)] md:text-5xl"
+            className="font-heading relative z-10 mt-3 text-4xl font-bold tracking-tight text-[var(--color-text)] md:text-5xl"
           >
             {heroData.intro}{' '}
             <span className="text-[var(--color-accent)]">
@@ -35,7 +39,7 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.5 }}
-            className="mt-3 text-lg font-medium text-[var(--color-cyan)] md:text-xl"
+            className="relative z-10 mt-3 text-lg font-medium text-[var(--color-cyan)] md:text-xl"
           >
             {heroData.title}
           </motion.p>
@@ -43,7 +47,7 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
-            className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg"
+            className="relative z-10 mt-4 max-w-xl text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg"
           >
             {heroData.tagline} {heroData.summary}
           </motion.p>
@@ -52,7 +56,7 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.4 }}
-            className="mt-6 flex flex-wrap justify-center gap-2 md:justify-start"
+            className="relative z-10 mt-6 flex flex-wrap justify-center gap-2 md:justify-start"
           >
             {heroData.badges.map((badge) => (
               <span
@@ -68,7 +72,7 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.4 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start"
+            className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start"
           >
             {heroData.ctas.map((cta) => {
               const isPrimary = Boolean(cta.primary)
@@ -91,7 +95,7 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45 }}
-            className="mt-8 flex justify-center gap-4 md:justify-start"
+            className="relative z-10 mt-8 flex justify-center gap-4 md:justify-start"
           >
             {socialLinks.map(({ label, href, logo }) => (
               <a
@@ -112,7 +116,7 @@ export default function PremiumHero({ profileImage }) {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.25, duration: 0.5 }}
-          className="order-1 mx-auto w-full max-w-[17rem] md:max-w-[20rem] lg:order-2 lg:max-w-[22rem]"
+          className="order-1 mx-auto w-full max-w-[16rem] md:max-w-[22rem] lg:order-2 lg:max-w-[25rem] xl:max-w-[26rem]"
         >
           <ProfileImageCard src={profileImage} alt={heroData.name} />
         </motion.div>
