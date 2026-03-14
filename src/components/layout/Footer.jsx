@@ -4,8 +4,8 @@ import { contactInfo, socialLinks } from '../../data/contact'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]">
-      <div className="site-container py-14">
+    <footer className="border-t border-[var(--color-border)] bg-white">
+      <div className="site-container py-12">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm font-medium text-[var(--color-text)]">

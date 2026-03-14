@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { Menu, FileText } from 'lucide-react'
-import { navLinks, resumeUrl } from '../../data/navigation'
+import { Menu } from 'lucide-react'
+import { navLinks } from '../../data/navigation'
 import MobileMenu from '../ui/MobileMenu'
 
 export default function Navbar() {
@@ -23,9 +23,9 @@ export default function Navbar() {
   }, [mobileOpen])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/98">
+    <header className="sticky top-0 z-50 px-3 py-4 md:px-6">
       <nav
-        className="site-container flex items-center justify-between gap-4 py-4"
+        className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border border-[var(--color-border)] bg-white px-4 py-3 shadow-[0_8px_22px_rgba(15,23,42,0.08)] md:px-6"
         aria-label="Main navigation"
       >
         <Link
@@ -34,7 +34,7 @@ export default function Navbar() {
         >
           Jay
         </Link>
-        <ul className="hidden list-none items-center gap-2 md:flex">
+        <ul className="hidden list-none items-center gap-1 md:flex">
           {visibleNavLinks.map(({ path, label }) => {
             const isActive =
               location.pathname === path || (path !== '/' && location.pathname.startsWith(path))
@@ -42,10 +42,10 @@ export default function Navbar() {
               <li key={path}>
                 <Link
                   to={path}
-                  className={`rounded-lg px-4 py-2.5 text-sm font-medium no-underline transition-colors duration-200 ${
+                  className={`rounded-lg px-4 py-2 text-sm font-medium no-underline transition-colors duration-200 ${
                     isActive
-                      ? 'bg-[var(--color-surface)] text-[var(--color-text)]'
-                      : 'text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]'
+                      ? 'bg-[var(--color-bg-elevated)] text-[var(--color-text)]'
+                      : 'text-[var(--color-text-muted)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]'
                   }`}
                 >
                   {label}
@@ -54,19 +54,12 @@ export default function Navbar() {
             )
           })}
           <li className="ml-1">
-            <a
-              href={resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary border-[var(--color-border-focus)] text-[var(--color-text)]"
-            >
-              <FileText size={16} aria-hidden /> Resume
-            </a>
+            <Link to="/contact" className="btn-primary px-5 py-2.5">Let's Talk</Link>
           </li>
         </ul>
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] transition-colors hover:border-[var(--color-border-focus)] md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] transition-colors hover:border-[var(--color-border-focus)] md:hidden"
           onClick={() => setMobileOpen(true)}
           aria-label="Open menu"
         >

@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @theme {
-  --color-bg: #020617;
-  --color-bg-elevated: #050c18;
-  --color-surface: #0c1628;
-  --color-surface-hover: #111e34;
-  --color-border: rgba(148, 163, 184, 0.2);
-  --color-border-focus: rgba(148, 163, 184, 0.34);
-  --color-text: #e5e7eb;
-  --color-text-muted: #9caec6;
-  --color-accent: #60a5fa;
-  --color-cyan: #22d3ee;
-  --color-accent-glow: rgba(96, 165, 250, 0.18);
-  --gradient-accent: linear-gradient(135deg, #3b82f6, #22d3ee);
+  --color-bg: #f5f8fa;
+  --color-bg-elevated: #eef3f6;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8fbfc;
+  --color-border: #e2e8f0;
+  --color-border-focus: #cbd5e1;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-accent: #0ea5a4;
+  --color-cyan: #0f766e;
+  --color-accent-glow: rgba(14, 165, 164, 0.18);
+  --gradient-accent: linear-gradient(135deg, #14b8a6, #0ea5a4);
   --font-heading: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -26,7 +26,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background-color: var(--color-bg);
+  background: linear-gradient(180deg, #f5f8fa 0%, #eef3f6 100%);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,7 +59,17 @@ button:focus-visible {
 
   .site-container {
     margin-inline: auto;
-    width: min(100% - 2rem, 72rem);
+    width: min(100% - 2.25rem, 78rem);
+  }
+
+  .page-shell {
+    margin-inline: auto;
+    width: min(100% - 1.5rem, 84rem);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+    box-shadow: 0 18px 70px rgba(15, 23, 42, 0.1);
+    overflow: hidden;
   }
 
   .section-padding {
@@ -74,16 +84,22 @@ button:focus-visible {
     border: 1px solid var(--color-border);
     background: var(--color-surface);
     border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
   }
 
   .surface-card-hover {
-    transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease;
   }
 
   .surface-card-hover:hover {
     border-color: color-mix(in oklab, var(--color-accent) 30%, var(--color-border));
     background: var(--color-surface-hover);
-    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+    transform: translateY(-4px);
   }
 
   .btn-primary {
@@ -92,9 +108,9 @@ button:focus-visible {
     justify-content: center;
     gap: 0.5rem;
     border-radius: 0.75rem;
-    border: 1px solid color-mix(in oklab, var(--color-accent) 55%, #ffffff 0%);
-    background: color-mix(in oklab, var(--color-accent) 18%, var(--color-bg));
-    color: var(--color-text);
+    border: 1px solid color-mix(in oklab, var(--color-accent) 75%, #000000 0%);
+    background: var(--color-accent);
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
@@ -103,8 +119,8 @@ button:focus-visible {
   }
 
   .btn-primary:hover {
-    border-color: color-mix(in oklab, var(--color-accent) 75%, #ffffff 0%);
-    background: color-mix(in oklab, var(--color-accent) 28%, var(--color-bg));
+    border-color: color-mix(in oklab, var(--color-accent) 92%, #000000 0%);
+    background: color-mix(in oklab, var(--color-accent) 86%, #000000 14%);
     transform: translateY(-1px);
   }
 
@@ -115,7 +131,7 @@ button:focus-visible {
     gap: 0.5rem;
     border-radius: 0.75rem;
     border: 1px solid var(--color-border);
-    background: transparent;
+    background: #ffffff;
     color: var(--color-text);
     text-decoration: none;
     font-size: 0.9rem;
@@ -132,6 +148,11 @@ button:focus-visible {
 
 @media (min-width: 768px) {
   @layer utilities {
+    .page-shell {
+      width: min(100% - 3rem, 84rem);
+      border-radius: 1.75rem;
+    }
+
     .section-padding {
       padding-block: 6rem;
     }

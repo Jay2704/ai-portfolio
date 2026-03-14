@@ -16,7 +16,7 @@ export default function MobileMenu({ onClose }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-[9999] bg-[var(--color-bg)] md:hidden"
+      className="fixed inset-0 z-[9999] bg-[#f5f8fa]/95 md:hidden"
       aria-modal="true"
       role="dialog"
       aria-label="Mobile menu"
@@ -67,10 +67,13 @@ export default function MobileMenu({ onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="btn-primary mt-6 w-full"
+            className="btn-secondary mt-6 w-full"
           >
             <FileText size={20} /> Resume
           </a>
+          <Link to="/contact" onClick={onClose} className="btn-primary mt-3 w-full">
+            Let's Talk
+          </Link>
 
           {socialLinks.length > 0 && (
             <div className="mt-8 border-t border-[var(--color-border)] pt-6">

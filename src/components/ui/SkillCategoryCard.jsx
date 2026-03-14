@@ -6,8 +6,8 @@ const defaultAccent = {
   cardHoverBorder: 'hover:border-[var(--color-border-focus)]',
   cardHoverShadow: '',
   titleClass: 'text-[var(--color-text)]/95',
-  accentBg: 'bg-blue-500/10',
-  accentText: 'text-blue-200',
+  accentBg: 'bg-teal-500/10',
+  accentText: 'text-teal-700',
   badge: undefined,
 }
 

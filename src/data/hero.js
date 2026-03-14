@@ -3,16 +3,15 @@ import bmsLogo from '../assets/BMS.svg'
 
 export const heroData = {
   name: 'Jay Paun',
-  title: 'Software Developer + AI Engineer',
-  intro: "Hi, I'm",
-  tagline: 'Building intelligent, scalable software.',
+  title: 'Software Engineer / AI Developer',
+  intro: "Hello, I'm",
+  tagline: 'I build reliable AI-powered products and full-stack systems.',
   summary:
-    'I design and build AI-powered systems, cloud infrastructure, and full-stack applications. From fine-tuning LLMs and building agentic AI workflows to optimizing distributed pipelines—I focus on shipping reliable, production-ready software.',
+    'I work across AI, backend, and modern web development to turn complex ideas into clean, production-ready applications. I focus on performance, usability, and business impact.',
   badges: ['AI / ML', 'Full Stack', 'Cloud / DevOps', 'Open to Opportunities'],
   ctas: [
-    { label: 'View Projects', to: '/projects', primary: true },
-    { label: 'Contact Me', to: '/contact', primary: false },
-    { label: 'Download Resume', href: 'https://drive.google.com/file/d/1dftyVaoEpFzKfqZNeuSJJT4vIvIaGABE/view?usp=drive_link', external: true },
+    { label: 'Hire Me', to: '/contact', primary: true },
+    { label: 'View Projects', to: '/projects', primary: false },
   ],
 }
 

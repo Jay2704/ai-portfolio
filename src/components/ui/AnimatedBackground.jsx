@@ -3,22 +3,22 @@ export default function AnimatedBackground({ variant = 'grid' }) {
     return (
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute inset-0 opacity-[0.42]"
           style={{
             backgroundImage: `
-              linear-gradient(var(--color-border) 1px, transparent 1px),
-              linear-gradient(90deg, var(--color-border) 1px, transparent 1px)
+              linear-gradient(rgba(148,163,184,0.15) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(148,163,184,0.15) 1px, transparent 1px)
             `,
             backgroundSize: '56px 56px',
           }}
         />
         <div
           className="absolute -left-24 top-0 h-72 w-72 rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(96,165,250,0.12), transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.16), transparent 70%)' }}
         />
         <div
           className="absolute -bottom-12 right-0 h-72 w-72 rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.08), transparent 72%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(56,189,248,0.12), transparent 72%)' }}
         />
       </div>
     )

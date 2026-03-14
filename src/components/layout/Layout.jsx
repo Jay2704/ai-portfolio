@@ -15,25 +15,27 @@ export default function Layout() {
   const location = useLocation()
 
   return (
-    <>
+    <div className="px-2 py-3 md:px-4 md:py-6">
       <ScrollProgress />
-      <Navbar />
-      <main className="relative">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-          >
-            <Outlet />
-          </motion.div>
-        </AnimatePresence>
-      </main>
-      <Footer />
+      <div className="page-shell">
+        <Navbar />
+        <main className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+            >
+              <Outlet />
+            </motion.div>
+          </AnimatePresence>
+        </main>
+        <Footer />
+      </div>
       <BackToTopButton />
-    </>
+    </div>
   )
 }

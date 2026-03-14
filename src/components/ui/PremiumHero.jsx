@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, FileDown } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import AnimatedBackground from './AnimatedBackground'
 import ProfileImageCard from './ProfileImageCard'
 import { heroData } from '../../data/hero'
@@ -8,7 +8,7 @@ import { socialLinks } from '../../data/contact'
 
 export default function PremiumHero({ profileImage }) {
   return (
-    <section className="relative overflow-hidden border-b border-[var(--color-border)] pt-6 md:pt-8">
+    <section className="relative overflow-hidden border-b border-[var(--color-border)] pt-4 md:pt-6">
       <AnimatedBackground variant="grid" />
       <div className="site-container relative section-padding grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
         <div className="order-2 flex flex-col text-center md:text-left lg:order-1">
@@ -24,10 +24,10 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.4 }}
-            className="font-heading mt-4 text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-5xl"
+            className="font-heading mt-3 text-4xl font-bold tracking-tight text-[var(--color-text)] md:text-5xl"
           >
             {heroData.intro}{' '}
-            <span className="text-[var(--color-cyan)]">
+            <span className="text-[var(--color-accent)]">
               {heroData.name}
             </span>
           </motion.h1>
@@ -35,17 +35,17 @@ export default function PremiumHero({ profileImage }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.5 }}
-            className="mt-3 text-lg font-medium text-[var(--color-text)]/95 md:text-xl"
+            className="mt-3 text-lg font-medium text-[var(--color-cyan)] md:text-xl"
           >
-            {heroData.tagline}
+            {heroData.title}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg"
+            className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg"
           >
-            {heroData.summary}
+            {heroData.tagline} {heroData.summary}
           </motion.p>
 
           <motion.div
@@ -57,7 +57,7 @@ export default function PremiumHero({ profileImage }) {
             {heroData.badges.map((badge) => (
               <span
                 key={badge}
-                className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-1.5 text-xs font-medium text-[var(--color-text-muted)]"
+                className="rounded-full border border-[#dbe5ed] bg-[#f8fbfd] px-3.5 py-1.5 text-xs font-medium text-[var(--color-text-muted)]"
               >
                 {badge}
               </span>
@@ -71,19 +71,6 @@ export default function PremiumHero({ profileImage }) {
             className="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start"
           >
             {heroData.ctas.map((cta) => {
-              if (cta.external) {
-                return (
-                  <a
-                    key={cta.label}
-                    href={cta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                  >
-                    <FileDown size={18} aria-hidden /> {cta.label}
-                  </a>
-                )
-              }
               const isPrimary = Boolean(cta.primary)
               return (
                 <Link
